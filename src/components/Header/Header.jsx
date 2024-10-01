@@ -1,114 +1,133 @@
-import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
-import { FaUserShield } from 'react-icons/fa' // Importing FontAwesome icon
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaBars, FaTimes } from 'react-icons/fa'; // Icons for menu
+import logo from '../Header/logo.jpg';
 
-export default function Header() {
+
+const Header = () => {
+    // State to toggle mobile menu visibility
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Toggle the menu
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    // Close the menu when a link is clicked (useful for mobile)
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <header className="shadow sticky z-50 top-0 bg-white boundary-orange-700">
-            <nav className="bg-white border-orange-700 px-4 lg:px-6 py-2.5">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    {/* Logo Section */}
-                    <Link to="/" className="flex items-center">
-                        <img
-                            src="https://www.saisamarthpolytech.com/images/logo.png"
-                            className="mr-3 h-12"
-                            alt="Logo"
-                        />
-                    </Link>
+        <nav className="bg-grey shadow-md border-b-4 border-[#e67e22]">
+            <div className="container mx-auto flex items-center justify-between px-4 py-3">
+                {/* Logo and Brand */}
+                <Link to="/" className="flex items-center">
+                    <img
+                        src={logo}
+                        alt="Logo"
+                        className="w-12 h-12 rounded-md shadow-md object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                    <span className="ml-3 text-xl font-bold text-[#e67e22] tracking-wide">
+                        Saisamarth Polytech Pvt. Ltd.
+                    </span>
+                </Link>
 
-                    {/* Navigation Menu */}
-                    <div
-                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-                        id="mobile-menu-2"
-                    >
-                        <ul className="flex flex-col mt-2 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                   <a href ="/Home" > Home </a>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/about"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/ProductPage"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Product
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/ApplicationPage"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Application
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/ClientPage"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Clients
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/contact"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${
-                                            isActive ? "text-orange-700" : "text-gray-700"
-                                        } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Contact
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Admin Icon on the Right */}
-                    <div className="lg:order-2">
-                        <Link
-                            to="/admin"
-                            className="flex items-center px-3 py-2 text-orange-700 hover:text-orange-600 transition-colors duration-200"
-                        >
-                            <FaUserShield className="text-2xl" />
-                            <span className="ml-2 hidden lg:block">Admin</span>
-                        </Link>
-                    </div>
+                {/* Hamburger Menu Icon */}
+                <div className="lg:hidden">
+                    <button onClick={toggleMenu} className="text-2xl focus:outline-none text-gray-700">
+                        {isOpen ? <FaTimes /> : <FaBars />}
+                    </button>
                 </div>
-            </nav>
-        </header>
-    );
-}
+
+                {/* Links for large screens */}
+                
+    <div className={`lg:flex lg:items-center lg:space-x-6 ${isOpen ? "block" : "hidden"}`}>
+                    <Link 
+                        to="/" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                        Home
+                    </Link>
+                    <Link 
+                        to="/About" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                        About Us
+                    </Link>
+                    <Link 
+                        to="/contactus" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                        Contact Us
+                    </Link>
+                    <Link 
+                        to="/applications" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                        Applications
+                    </Link>
+                    <Link 
+                        to="/client" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                        Clients
+                    </Link>
+                    <Link 
+                        to="/Contact" 
+                        className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200"
+                        onClick={closeMenu}
+                    >
+                       Contact
+                    </Link>
+                    <Link 
+                        to="/admin" 
+                        className="flex items-center mt-4 lg:mt-0"
+                        onClick={closeMenu}
+                    >
+                        <button className="bg-[#e67e22] text-white py-2 px-4 rounded-lg hover:bg-[#d35400] hover:scale-105 transition-all duration-300 shadow-lg flex items-center">
+                            <BsFillPersonFill className="mr-2" /> Admin
+                        </button>
+                    </Link>
+                </div>
+            </div>
+
+            {/* Mobile Menu (Optional: For smoother transitions, you can keep this separate if needed) */}
+            {/* 
+            <div className={`lg:hidden ${isOpen ? "block" : "hidden"}`}>
+                <div className="flex flex-col items-center space-y-4 pb-4">
+                    <Link to="/" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>Home</Link>
+                    <Link to="/aboutus" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>About Us</Link>
+                    <Link to="/contactus" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>Contact Us</Link>
+                    <Link to="/applications" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>Applications</Link>
+                    <Link to="/client" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>Clients</Link>
+                    <Link to="/feedback" className="text-gray-800 text-base uppercase hover:text-[#e67e22] transition-all duration-200" onClick={closeMenu}>Feedback</Link>
+                    <Link to="/admin" className="flex items-center" onClick={closeMenu}>
+                        <button className="bg-[#e67e22] text-white py-2 px-4 rounded-lg hover:bg-[#d35400] hover:scale-105 transition-all duration-300 shadow-lg flex items-center">
+                            <BsFillPersonFill className="mr-2" /> Admin
+                        </button>
+                    </Link>
+                </div>
+            </div>
+            */}
+
+        </nav>
+
+
+);
+
+};
+        
+
+           
+
+
+export default Header;
+
+        

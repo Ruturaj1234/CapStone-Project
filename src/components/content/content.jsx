@@ -1,15 +1,17 @@
 import React from 'react';
+import '../content/animations.css'; // Import the animations CSS
 
 function Content() {
   return (
-    <div className="py-16 bg-gray-100">
-      <div className="container mx-auto px-6 text-gray-600 md:px-12 xl:px-6">
+    <div className="py-10 bg-gray-100">
+      <div className="container mx-auto px-0 text-gray-600 md:px-12 xl:px-6">
+        {/* Welcome Section */}
         <div className="space-y-6 md:space-y-0 md:flex md:gap-12 lg:items-start">
-          {/* Left-hand side with two stacked images */}
+          {/* Left-hand side with one image */}
           <div className="md:w-6/12 lg:w-5/12 space-y-6">
             <img
               src="https://via.placeholder.com/400x500?text=Image+1"
-              alt="Image 1"
+              alt="Welcome Image"
               className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
             />
           </div>
@@ -31,15 +33,15 @@ function Content() {
               Learn More About Us
             </a>
           </div>
-        </div> {/* End of the first section */}
+        </div> {/* End of the Welcome section */}
 
-        {/* New section for products */}
+        {/* Products Section */}
         <div className="mt-16 text-center">
           <h2 className="text-3xl italic font-semibold text-gray-900">Products</h2>
           <p className="mt-4 text-lg text-gray-600">Explore our high-quality product range designed for various industries.</p>
 
           {/* Product images and descriptions */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-12">
             {/* Product 1 */}
             <div className="group">
               <img
@@ -53,12 +55,6 @@ function Content() {
               <p className="mt-2 text-gray-700 leading-relaxed">
                 Durable and high-performance flooring solutions designed for tough industrial environments.
               </p>
-              <a
-                href="/ProductPage"
-                className="inline-block mt-4 px-6 py-2 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-              >
-                Read More
-              </a>
             </div>
 
             {/* Product 2 */}
@@ -74,12 +70,6 @@ function Content() {
               <p className="mt-2 text-gray-700 leading-relaxed">
                 Seamless, sterile, and easy-to-clean flooring ideal for pharmaceutical environments.
               </p>
-              <a
-                href="/ProductPage"
-                className="inline-block mt-4 px-6 py-2 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-              >
-                Read More
-              </a>
             </div>
 
             {/* Product 3 */}
@@ -95,28 +85,54 @@ function Content() {
               <p className="mt-2 text-gray-700 leading-relaxed">
                 Flooring solutions that combine safety, durability, and ease of maintenance for healthcare facilities.
               </p>
-              <a
-                href="/ProductPage"
-                className="inline-block mt-4 px-6 py-2 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-              >
-                Read More
-              </a>
+            </div>
+
+            {/* Product 4 */}
+            <div className="group">
+              <img
+                src="https://via.placeholder.com/300x300?text=Product+4"
+                alt="Product 4"
+                className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
+              />
+              <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-orange-600 transition ease-in-out">
+                Commercial Flooring Solution
+              </h3>
+              <p className="mt-2 text-gray-700 leading-relaxed">
+                Versatile flooring options designed for commercial spaces, ensuring durability and aesthetic appeal.
+              </p>
             </div>
           </div>
+
+          {/* Single Read More Button */}
+          <a
+            href="/Products"
+            className="inline-block mt-12 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75 transition ease-in-out duration-300"
+          >
+            Read More Products
+          </a>
         </div>
 
         {/* Client Section */}
         <div className="mt-16 text-center">
           <h2 className="text-3xl italic font-semibold text-gray-900">Our Clients</h2>
           <div className="mt-8 overflow-hidden relative">
-            <div className="flex space-x-6 animate-scroll">
-              {/* Client logos - continuously sliding */}
-              {[...Array(10)].map((_, i) => (
+            {/* Sliding Clients Slider */}
+            <div className="slider animate-scroll">
+              {[...Array(15)].map((_, i) => (
                 <img
                   key={i}
                   src={`https://via.placeholder.com/150x100?text=Client+${i + 1}`}
                   alt={`Client ${i + 1}`}
-                  className="h-20 w-auto object-contain"
+                  className="h-20 w-auto object-contain mx-4"
+                />
+              ))}
+              {/* Duplicate the images for seamless scrolling */}
+              {[...Array(15)].map((_, i) => (
+                <img
+                  key={`duplicate-${i}`}
+                  src={`https://via.placeholder.com/150x100?text=Client+${i + 1}`}
+                  alt={`Client Duplicate ${i + 1}`}
+                  className="h-20 w-auto object-contain mx-4"
                 />
               ))}
             </div>
@@ -176,7 +192,6 @@ function Content() {
             View Full Gallery
           </a>
         </div>
-
       </div>
     </div>
   );
