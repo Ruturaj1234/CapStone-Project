@@ -24,7 +24,7 @@ function ImageSlider() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto mt-0 shadow-lg rounded-lg overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto mt-0 shadow-lg rounded-lg overflow-hidden">
       <div className="relative">
         <img
           src={images[currentIndex]}

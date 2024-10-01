@@ -1,195 +1,113 @@
 import React from 'react';
 import '../content/animations.css'; // Import the animations CSS
+import { FaShieldAlt, FaCogs, FaDollarSign, FaClock } from 'react-icons/fa'; // Import icons
 
 function Content() {
   return (
-    <div className="py-10 bg-gray-100">
-      <div className="container mx-auto px-0 text-gray-600 md:px-12 xl:px-6">
+    <div className="py-10 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-12 xl:px-6">
         {/* Welcome Section */}
-        <div className="space-y-6 md:space-y-0 md:flex md:gap-12 lg:items-start">
-          {/* Left-hand side with one image */}
-          <div className="md:w-6/12 lg:w-5/12 space-y-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+          <h2 className="text-4xl text-gray-900 font-bold">Welcome to Sai Samarth Polytech</h2>
+          <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+            We specialize in excellent polymer treatments, tailored finishing solutions for Pharma clean rooms, and creating a hygienic, antibacterial, antifungal, and dust-free atmosphere.
+          </p>
+          <a
+            href="/About"
+            className="mt-6 inline-block px-6 py-2 bg-orange-600 text-white text-lg font-semibold rounded-lg hover:bg-orange-700 transition ease-in-out duration-300"
+          >
+            Learn More About Us
+          </a>
+        </div>
+
+        {/* Our Technology Section */}
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+          <h2 className="text-3xl text-gray-900 font-semibold">Our Technology</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+            <div className="flex items-center space-x-3">
+              <FaShieldAlt className="text-blue-600 text-3xl" />
+              <div>
+                <h3 className="font-bold text-xl">Right Material Selection</h3>
+                <p className="text-gray-600">Choosing the best materials for optimal results.</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <FaCogs className="text-blue-600 text-3xl" />
+              <div>
+                <h3 className="font-bold text-xl">Right Application</h3>
+                <p className="text-gray-600">Expert application techniques for durability.</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <FaDollarSign className="text-blue-600 text-3xl" />
+              <div>
+                <h3 className="font-bold text-xl">Cost-Effective Solution</h3>
+                <p className="text-gray-600">Maximizing value while minimizing costs.</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <FaClock className="text-blue-600 text-3xl" />
+              <div>
+                <h3 className="font-bold text-xl">Time Frame</h3>
+                <p className="text-gray-600">Timely delivery without compromising quality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+{/* Client Section */}
+<div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+<div className="mt-0 text-center">
+  <h2 className="text-4xl italic font-semibold text-gray-900 mt-0">Our Clients</h2>
+  <div className="mt-0 overflow-hidden relative">
+    {/* Automatic Sliding Clients Slider */}
+    <div className="slider animate-scroll flex space-x-4">
+      {[...Array(30)].map((_, i) => (
+        <a
+          href={`https://www.saisamarthpolytech.com/tt/${i + 1}.jpg`}
+          key={i}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="h-52 w-80 bg-gray-200">
             <img
-              src="https://via.placeholder.com/400x500?text=Image+1"
-              alt="Welcome Image"
-              className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
+              src={`https://www.saisamarthpolytech.com/tt/${i + 1}.jpg`}
+              alt={`Client ${i + 1}`}
+              className="h-full w-full object-cover"
             />
           </div>
-          {/* Right Side Text */}
-          <div className="md:w-6/12 lg:w-7/12 space-y-6">
-            <h2 className="text-4xl text-gray-900 italic font-bold md:text-5xl">
-              Welcome
-            </h2>
-            <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-              Brite Proofings is a pioneer in Synthetic Flooring for the Pharma industry in India, known for setting industry benchmarks in quality and innovation. With state-of-the-art facilities and highly skilled manpower, we consistently deliver flooring solutions that meet the highest standards.
-            </p>
-            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              Our commitment to excellence ensures we provide flooring solutions that exceed client expectations, combining durability with aesthetic appeal for a wide range of industrial applications.
-            </p>
-            <a
-              href="/About"
-              className="inline-block mt-8 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-            >
-              Learn More About Us
-            </a>
-          </div>
-        </div> {/* End of the Welcome section */}
-
-        {/* Products Section */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl italic font-semibold text-gray-900">Products</h2>
-          <p className="mt-4 text-lg text-gray-600">Explore our high-quality product range designed for various industries.</p>
-
-          {/* Product images and descriptions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-12">
-            {/* Product 1 */}
-            <div className="group">
-              <img
-                src="https://via.placeholder.com/300x300?text=Product+1"
-                alt="Product 1"
-                className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-              <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-orange-600 transition ease-in-out">
-                Industrial Flooring Solution
-              </h3>
-              <p className="mt-2 text-gray-700 leading-relaxed">
-                Durable and high-performance flooring solutions designed for tough industrial environments.
-              </p>
-            </div>
-
-            {/* Product 2 */}
-            <div className="group">
-              <img
-                src="https://via.placeholder.com/300x300?text=Product+2"
-                alt="Product 2"
-                className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-              <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-orange-600 transition ease-in-out">
-                Pharma Flooring Solution
-              </h3>
-              <p className="mt-2 text-gray-700 leading-relaxed">
-                Seamless, sterile, and easy-to-clean flooring ideal for pharmaceutical environments.
-              </p>
-            </div>
-
-            {/* Product 3 */}
-            <div className="group">
-              <img
-                src="https://via.placeholder.com/300x300?text=Product+3"
-                alt="Product 3"
-                className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-              <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-orange-600 transition ease-in-out">
-                Healthcare Flooring Solution
-              </h3>
-              <p className="mt-2 text-gray-700 leading-relaxed">
-                Flooring solutions that combine safety, durability, and ease of maintenance for healthcare facilities.
-              </p>
-            </div>
-
-            {/* Product 4 */}
-            <div className="group">
-              <img
-                src="https://via.placeholder.com/300x300?text=Product+4"
-                alt="Product 4"
-                className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-              <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-orange-600 transition ease-in-out">
-                Commercial Flooring Solution
-              </h3>
-              <p className="mt-2 text-gray-700 leading-relaxed">
-                Versatile flooring options designed for commercial spaces, ensuring durability and aesthetic appeal.
-              </p>
-            </div>
-          </div>
-
-          {/* Single Read More Button */}
-          <a
-            href="/Products"
-            className="inline-block mt-12 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-          >
-            Read More Products
-          </a>
-        </div>
-
-        {/* Client Section */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl italic font-semibold text-gray-900">Our Clients</h2>
-          <div className="mt-8 overflow-hidden relative">
-            {/* Sliding Clients Slider */}
-            <div className="slider animate-scroll">
-              {[...Array(15)].map((_, i) => (
-                <img
-                  key={i}
-                  src={`https://via.placeholder.com/150x100?text=Client+${i + 1}`}
-                  alt={`Client ${i + 1}`}
-                  className="h-20 w-auto object-contain mx-4"
-                />
-              ))}
-              {/* Duplicate the images for seamless scrolling */}
-              {[...Array(15)].map((_, i) => (
-                <img
-                  key={`duplicate-${i}`}
-                  src={`https://via.placeholder.com/150x100?text=Client+${i + 1}`}
-                  alt={`Client Duplicate ${i + 1}`}
-                  className="h-20 w-auto object-contain mx-4"
-                />
-              ))}
-            </div>
-          </div>
-          <a
-            href="/ClientPage"
-            className="inline-block mt-8 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition ease-in-out duration-300"
-          >
-            See All Clients
-          </a>
-        </div>
+        </a>
+      ))}
+    </div>
+  </div>
+  <a
+    href="/ClientPage"
+    className="inline-block mt-0 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75 transition ease-in-out duration-300"
+  >
+    See All Clients
+  </a>
+</div>
+</div>
 
         {/* Gallery Section */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl italic font-semibold text-gray-900">Gallery</h2>
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+          <h2 className="text-3xl text-gray-900 font-semibold">Gallery</h2>
           <p className="mt-2 text-lg text-gray-600">Check out some of our recent projects!</p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-            {/* Gallery Image 1 */}
-            <div className="group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="https://via.placeholder.com/300x200?text=Gallery+1"
-                alt="Gallery 1"
-                className="w-full h-auto transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-            </div>
-            {/* Gallery Image 2 */}
-            <div className="group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="https://via.placeholder.com/300x200?text=Gallery+2"
-                alt="Gallery 2"
-                className="w-full h-auto transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-            </div>
-            {/* Gallery Image 3 */}
-            <div className="group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="https://via.placeholder.com/300x200?text=Gallery+3"
-                alt="Gallery 3"
-                className="w-full h-auto transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-            </div>
-            {/* Gallery Image 4 */}
-            <div className="group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="https://via.placeholder.com/300x200?text=Gallery+4"
-                alt="Gallery 4"
-                className="w-full h-auto transform transition hover:scale-105 duration-300 ease-in-out"
-              />
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-4">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="group overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src={`https://via.placeholder.com/300x200?text=Gallery+${i + 1}`}
+                  alt={`Gallery ${i + 1}`}
+                  className="w-full h-auto transform transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
-
           <a
             href="/ApplicationPage"
-            className="inline-block mt-8 px-8 py-3 bg-orange-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75 transition ease-in-out duration-300"
+            className="mt-6 inline-block px-6 py-2 bg-orange-600 text-white text-lg font-semibold rounded-lg hover:bg-orange-700 transition ease-in-out duration-300"
           >
-            View Full Gallery
+            View More in Our Gallery
           </a>
         </div>
       </div>
@@ -198,3 +116,4 @@ function Content() {
 }
 
 export default Content;
+
