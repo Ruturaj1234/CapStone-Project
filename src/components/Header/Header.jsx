@@ -47,7 +47,7 @@ const Header = () => {
                         About Us
                     </Link>
                     <Link 
-                        to="/contactus" 
+                        to="/Contact" 
                         className="block mt-4 lg:inline-block lg:mt-0 text-black text-base uppercase font-bold  hover:bg-orange-600 transition-all duration-200 text-0xl"
                         onClick={closeMenu}
                     >
@@ -75,7 +75,7 @@ const Header = () => {
                         Clients
                     </Link>
                     <Link 
-                        to="/admin" 
+                        to="/login" 
                         className="flex items-center mt-4 lg:mt-0"
                         onClick={closeMenu}
                     >
@@ -91,5 +91,6 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
