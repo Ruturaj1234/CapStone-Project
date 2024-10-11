@@ -45,7 +45,7 @@ export default function About() {
           {/* Our Vision */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <div className="flex items-center mb-4">
-              <FaFlask className="text-orange-600 text-3xl mr-3" />
+              <FaFlask className="text-blue-600 text-3xl mr-3" />
               <h2 className="text-2xl font-semibold text-gray-800">Our Vision</h2>
             </div>
             <ul className="list-disc list-inside text-gray-600 space-y-2">
@@ -58,7 +58,7 @@ export default function About() {
           {/* Our Mission */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <div className="flex items-center mb-4">
-              <FaTools className="text-orange-600 text-3xl mr-3" />
+              <FaTools className="text-blue-600 text-3xl mr-3" />
               <h2 className="text-2xl font-semibold text-gray-800">Our Mission</h2>
             </div>
             <ul className="list-disc list-inside text-gray-600 space-y-2">
@@ -75,7 +75,7 @@ export default function About() {
       <section className="container mx-auto px-6 md:px-12 mt-16">
         <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex items-center justify-center mb-4">
-            <FaShieldAlt className="text-orange-600 text-5xl mr-3" />
+            <FaShieldAlt className="text-blue-600 text-5xl mr-3" />
             <h1 className="text-2xl font-semibold text-gray-800">What We Provide</h1>
           </div>
 

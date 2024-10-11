@@ -1,55 +1,62 @@
 import React, { useState } from 'react';
+ // Import the login function
 
 const login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add logic for login authentication
-    console.log('Email:', email, 'Password:', password);
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const result = login(username, password); // Call the login function from authService
+        if (result.success) {
+            alert(result.message);
+            // Perform redirection or other actions after successful login
+            // For example, use history.push("/admin-dashboard") if using React Router
+        } else {
+            setError(result.message); // Display error message
+        }
+    };
 
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h2 className="text-3xl font-bold text-center text-[#e67e22] mb-8">Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-6">
-            <label className="block text-gray-700 font-bold mb-2">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-[#e67e22] transition duration-300"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 font-bold mb-2">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-[#e67e22] transition duration-300"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-[#e67e22] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#d35400] transition-all duration-300"
-          >
-            Login
-          </button>
-        </form>
-        <p className="mt-4 text-center text-gray-600">
-           <a href="/register" className="text-[#e67e22] hover:underline"></a>
-        </p>
-      </div>
-    </div>
-  );
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-xl shadow-lg">
+                <h2 className="text-center text-3xl font-bold text-gray-800">Admin Login</h2>
+                {error && <p className="text-red-500 text-center">{error}</p>}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Username</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Enter your username"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Password</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Enter your password"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none"
+                    >
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
 };
 
 export default login;
+
+

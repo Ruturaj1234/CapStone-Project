@@ -54,7 +54,7 @@ const Header = () => {
                         Contact Us
                     </Link>
                     <Link 
-                        to="/client" 
+                        to="/ProductPage" 
                         className="block mt-4 lg:inline-block lg:mt-0 text-black  text-base uppercase font-bold hover:bg-orange-600 transition-all duration-200 text-0xl"
                         onClick={closeMenu}
                     >

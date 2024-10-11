@@ -20,7 +20,7 @@ import ProductPage from "./components/Product/ProductPage.jsx";
 import ProductDetailPage from "./components/Product/ProductDetailPage.jsx";
 import ApplicationPage from "./components/Application/ApplicationPage.jsx";
 import CustomSlider from "./components/Application/CustomSlider.jsx";
-import Login  from "./components/Login/Login.jsx";
+
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
@@ -56,7 +56,7 @@ const router = createBrowserRouter(
       <Route path="/products/:id" element={<ProductDetailPage />} />
       <Route path="ApplicationPage" element={<ApplicationPage />} />
       <Route path="CustomSlider" element={<CustomSlider />} />
-      <Route path="Login" element={<Login />} />
+    
     </Route>
   )
 );
@@ -66,3 +66,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
